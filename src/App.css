@@ -1,0 +1,45 @@
+
+.app {
+
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+.app h1 {
+  margin-bottom: 20px;
+}
+
+
+.mesa {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+ background-color: hsl(0, 0%, 100%);
+  border-radius: 10px;
+  border: 10px solid #4caf50;
+  cursor: pointer;
+  
+}
+
+
+.mesa:hover {
+  background-color: #ddd;
+}
+
+.mesa.ocupada{
+  background-color: #ffffff;
+  border: 10px solid #f44336;
+  
+}
+
+.mesa.ocupada:hover {
+  background-color: #f44336;
+}
+
