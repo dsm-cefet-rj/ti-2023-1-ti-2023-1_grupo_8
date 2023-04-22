@@ -1,1 +1,0 @@
-Usado pra criar a pasta de Cardapio antes de adicionar os arquivos do componente
