@@ -5,6 +5,9 @@ import AddMesa from "./componentes/AddMesa";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import MesaDetails from "./componentes/MesaDetails";
 import EditMesa from "./componentes/EditMesa";
+import Cozinha from "./componentes/Cozinha";
+//import Cardapio from "./componentes/Cardapio/Cardapio";
+//import Staff from "./componentes/Staff/Staff";
 
 const App = () => {
   const [mesas, setMesas] = useState([
@@ -37,6 +40,7 @@ const App = () => {
           <>
             <AddMesa handleMesaAddition={handleMesaAddition} />
             <Mesas mesas={mesas} />
+           <Cozinha />
           </>
         )} />
         <Route path="/mesa/:id" exact render={({ match }) => (
@@ -47,6 +51,7 @@ const App = () => {
         )} />
       </div>
     </Router>
+    
   );
 };
 
