@@ -1,0 +1,48 @@
+
+.div-1{
+    display: inside;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+    
+    cursor: pointer;
+}
+.mesa{
+    width: 210px;
+    height:210px;
+    display: inline ;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+   background-color: hsl(0, 0%, 100%);
+    border-radius: 5px;
+    border: 10px solid #4caf50;
+    cursor: pointer;
+    
+  }
+
+
+
+
+  .livre {
+    background-color: #ffffff;
+    border: 10px solid green;
+  }
+  
+
+  .ocupada{
+    background-color: #ffffff;
+    border: 10px solid #f44336;
+    
+  }
+  
+  .ocupada:hover {
+    background-color: #f44336;
+  }
+  
+  .livre:hover {
+    background-color:green;
+  }
