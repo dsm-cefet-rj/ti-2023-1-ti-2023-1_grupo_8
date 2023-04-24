@@ -2,7 +2,7 @@
 # INICIALIZAR O JSON SERVER
 
 
-npm run dev
+json-server --watch db.json --port 4000
 
 
 
