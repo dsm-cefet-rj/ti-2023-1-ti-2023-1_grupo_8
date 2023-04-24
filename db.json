@@ -1,0 +1,34 @@
+{
+  "mesas": [
+    {
+      "id": 1,
+      "nome": 0,
+      "cadeiras": 0,
+      "garcom": "",
+      "status": "livre",
+      "pedidos": [
+        {
+          "id": 1,
+          "nome": "Cerveja",
+          "preco": 5,
+          "quantidade": 1,
+          "status": "pendente"
+        },
+        {
+          "id": 2,
+          "nome": "Cerveja",
+          "preco": 5,
+          "quantidade": 1,
+          "status": "pendente"
+        },
+        {
+          "id": 3,
+          "nome": "Cerveja",
+          "preco": 5,
+          "quantidade": 1,
+          "status": "pendente"
+        }
+      ]
+    }
+  ]
+}
