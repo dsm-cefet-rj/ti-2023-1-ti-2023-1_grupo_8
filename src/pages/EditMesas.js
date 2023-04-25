@@ -1,38 +1,35 @@
+
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getMesaById,
-  getLoading,
-  saveNewMesa,
-  updateMesa,
+  getMesaById,//getMesaById é uma função que está no mesaslice.js e que retorna uma mesa pelo id
+  getLoading,//getLoading é uma função que está no mesaslice.js e que retorna o estado da aplicação
+  saveNewMesa,//saveNewMesa é uma função que está no mesaslice.js e que dispara uma ação para o redux
+  updateMesa,//updateMesa é uma função que está no mesaslice.js e que dispara uma ação para o redux
 } from "../features/mesas/mesaslice";
 import { useNavigate, useParams } from "react-router-dom";
 
-
-
-
-
-
+//handleSubmit é uma função que recebe uma função como parâmetro e que é executada quando o formulário é submetido
 const EditMesa = () => {
-  const { id } = useParams();
+  const { id } = useParams();//useParams é um hook que retorna os parâmetros da rota
   const itemToEdit = useSelector(getMesaById(Number(id)));
-  const { control, handleSubmit } = useForm({
-    defaultValues: {
-      nome: itemToEdit.nome,
-      cadeiras: itemToEdit.cadeiras,
-      status: itemToEdit.status,
-      garcom: itemToEdit.garcom,
-      pedidos: itemToEdit.pedidos,
-    },
-  });
+ const { control, handleSubmit } = useForm({
+  defaultValues: {
+    nome: itemToEdit.nome,
+    cadeiras: itemToEdit.cadeiras,
+    status: itemToEdit.status,
+    garcom: itemToEdit.garcom,
+    pedidos: itemToEdit.pedidos,
+  },
+});
 
-  const disptach = useDispatch();
-  const navigate = useNavigate();
+  const disptach = useDispatch();//dispatch é uma função que dispara uma ação para o redux e o redux vai atualizar o estado da aplicação
+  const navigate = useNavigate();//useNavigate é um hook que permite a navegação entre as rotas
   const apiStatus = useSelector(getLoading);
 
   const updateMesaForm = (data) => {
-    let payload = {
+    let payload = {//payload é um objeto que contém os dados que serão enviados para o redux 
       id: Number(id),
       nome: data.nome,
       cadeiras: Number(data.cadeiras),
@@ -40,9 +37,9 @@ const EditMesa = () => {
       status: data.status,
       pedidos: data.pedidos,
     };
-    disptach(updateMesa(payload))
+    disptach(updateMesa(payload))//updateMesa é uma função que está no mesaslice.js e que dispara uma ação para o redux
       .unwrap()
-      .then(() => {
+      .then(() => {//then é uma função que é executada após a promise ser resolvida
         navigate("/");
       });
   };
@@ -59,7 +56,7 @@ const EditMesa = () => {
               <Form.Group className="mb-3" controlId="formNome">
                 <Form.Label>Identificação</Form.Label>
                 <Controller
-                  control={control}
+                  control={control}//control é um objeto que contém as funções do react-hook-form
                   name="nome"
                   render={({ field }) => (
                     <Form.Control type="text" {...field} />
