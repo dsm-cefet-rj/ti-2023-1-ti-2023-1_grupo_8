@@ -10,21 +10,21 @@
         {
           "id": 1,
           "nome": "Cerveja",
-          "preco": 5,
-          "quantidade": 1,
+          "preco": 8,
+          "quantidade": 2,
           "status": "pendente"
         },
         {
           "id": 2,
-          "nome": "Cerveja",
-          "preco": 5,
-          "quantidade": 1,
+          "nome": "Hamburger",
+          "preco": 15,
+          "quantidade": 2,
           "status": "pendente"
         },
         {
           "id": 3,
-          "nome": "Cerveja",
-          "preco": 5,
+          "nome": "Pizza",
+          "preco": 80,
           "quantidade": 1,
           "status": "pendente"
         }
