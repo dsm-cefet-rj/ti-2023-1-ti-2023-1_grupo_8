@@ -63,6 +63,12 @@ function App() {
           <Route path="/edit-mesa/:id" element={<EditMesas />}></Route>
           <Route path="/exibe-mesa/:id" element={<DetailsMesa />}></Route>
           <Route path="/cozinha" element={<Cozinha />}></Route>
+          <Route path="/cardapio" element={<Cardapio />}></Route>
+          <Route path="/add-prato" element={<AddPrato />}></Route>
+          <Route path="/edit-prato/:id" element={<EditPrato />}></Route>
+          <Route path="/staff" element={<Staff />}></Route>
+          <Route path="/add-funcionario" element={<AddFuncionario />}></Route>
+          <Route path="/edit-funcionario/:id" element={<EditFuncionario />}></Route>
         </Routes>
         
         <Pedidos pedidos={pedidos} />
