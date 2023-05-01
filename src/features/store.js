@@ -5,5 +5,7 @@ export const store = configureStore({
   reducer: {
     mesa: mesaReducer,
   //  pedido: pedidoReducer,
+    prato: pratoReducer,
+    funcionario: funcionarioReducer,
   },
 });
