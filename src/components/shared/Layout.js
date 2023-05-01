@@ -5,7 +5,17 @@ const Layout = (props) => {
   return (
     <>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Mesas</Navbar.Brand>
+        <Navbar.Brand href="/">
+          Mesas
+        </Navbar.Brand>
+         - 
+        <Navbar.Brand href="/cardapio">
+          Cardapio
+        </Navbar.Brand>
+         - 
+        <Navbar.Brand href="/staff">
+          Staff
+        </Navbar.Brand>
       </Navbar>
       <Container>{props.children}</Container>
     </>
