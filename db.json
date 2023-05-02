@@ -9,20 +9,20 @@
       "id": 1
     },
     {
+      "id": 2,
       "nome": 0,
       "cadeiras": 2,
       "garcom": "Pedro",
-      "status": "livre",
-      "pedidos": [],
-      "id": 2
+      "status": "ocupada",
+      "pedidos": []
     },
     {
+      "id": 3,
       "nome": 0,
       "cadeiras": 4,
       "garcom": "Pedro",
-      "status": "livre",
-      "pedidos": [],
-      "id": 3
+      "status": "ocupada",
+      "pedidos": []
     },
     {
       "nome": 0,
@@ -41,12 +41,12 @@
       "id": 5
     },
     {
+      "id": 6,
       "nome": 0,
       "cadeiras": 2,
       "garcom": "Maria",
-      "status": "livre",
-      "pedidos": [],
-      "id": 6
+      "status": "ocupada",
+      "pedidos": []
     }
   ],
   "pedidos": [

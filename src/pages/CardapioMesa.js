@@ -37,7 +37,7 @@ const CardapioMesa = () => {
   
     return (
       <div className="cardapio">
-        <h1>Cardápio</h1>
+        <h1>Cardápio Mesa {id}</h1>
   
         {Object.entries(cardapioPorCategoria).map(([categoria, itens]) => (
           <div key={categoria}>
@@ -46,12 +46,11 @@ const CardapioMesa = () => {
               <tbody>
                 {itens.map((item, index) => (
                   <tr key={index}>
-                    <td>{item.nome}</td>
-                    <td>{item.valor}</td>
+
                     <td>
                       <PedidoMesa
                         itemPedido={{ nome: item.nome, preco: item.valor }}
-                        idmesa={id}
+                        
                       />
                     </td>
                   </tr>

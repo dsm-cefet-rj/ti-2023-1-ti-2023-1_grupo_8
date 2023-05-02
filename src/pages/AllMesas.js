@@ -16,6 +16,10 @@ import {
 import { Button, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import DeleteConfirmation from "../components/shared/DeleteConfirmation";
+import { FaEdit } from 'react-icons/fa';
+import { FaTrash } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
+import { FaListAlt } from 'react-icons/fa';
 
 const AllMesas = () => {
   const allmesas = useSelector(getAllMesas);
@@ -67,51 +71,66 @@ const AllMesas = () => {
             <Col key={mesa.id}>
 
               
-              <Card border="light" style={{ width: '1rem' }}>
+              <Card className="card" border="light" style={{ width: '1rem' }}>
                
                 <Card.Body className={`mesa ${mesa.status}`}>
+                  <div>
+
                   <Card.Title>Mesa {mesa.id}</Card.Title>
                   <Card.Text>Lugares: {mesa.cadeiras}</Card.Text>
                   <Card.Text>{mesa.status}</Card.Text>
+
+                  </div>
+
+                  <div>
+
                   <Button
-                    variant="dark"
+                  title="Editar Mesa"
+                    variant="outline-dark"
                     type="button"
                     onClick={() => {
                       navigate(`/edit-mesa/${mesa.id}`);
                     }}
                   >
-                    Editar
+                    <i><FaEdit /></i> {}
                   </Button>
                   
-                  <Button
-                    variant="danger"
-                    type="button"
-                    onClick={() => {
-                      openDeleteModalHandler(mesa.id);
-                    }}
-                  >
-                    Excluir
-                  </Button>
+
 
                   <Button
-                    variant="dark"
+                  title="Detalhes da Mesa"
+                    variant="outline-dark"
                     type="button"
                     onClick={() => {
                       navigate(`/exibe-mesa/${mesa.id}`);
                     }}
                   >
-                    Detalhes
+                    <i><FaEye /></i> {}
                   </Button>
 
                   <Button
-                    variant="dark"
+                    title="Cardápio da Mesa"
+                    variant="outline-dark"
                     type="button"
                     onClick={() => {
                       navigate(`/cardapio-mesa/${mesa.id}`);
                     }}
                   >
-                    Pedido
+                    <i><FaListAlt /></i> {}
                   </Button>
+
+                  <Button
+                   title="Excluir Mesa"
+                    variant="outline-danger"
+                    type="button"
+                    onClick={() => {
+                      openDeleteModalHandler(mesa.id);
+                    }}
+                  >
+                    <i><FaTrash /></i> {}
+                  </Button>
+
+                  </div>
 
 
 
@@ -145,15 +164,7 @@ const AllMesas = () => {
             >
               Adicionar Mesa
             </Button>
-            <Button
-              variant="dark"
-              type="button"
-              onClick={() => {
-                navigate("/cozinha");
-              }}
-            >
-              Cozinha
-            </Button>
+
           </Col>
         </div>
         <Row>{contentToRender}</Row>

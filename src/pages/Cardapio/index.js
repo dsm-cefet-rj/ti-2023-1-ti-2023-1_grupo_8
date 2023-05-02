@@ -65,7 +65,7 @@ export const Cardapio = () => {
           {itens.map((item, index) => (
             <div className="item" key={index}>
               <div className="nome">{item.nome}</div>
-              <div className="valor">{item.valor}</div>
+              <div className="valor">R$ {item.valor}</div>
               <Button
                 variant="outline-danger"
                 onClick={() => {

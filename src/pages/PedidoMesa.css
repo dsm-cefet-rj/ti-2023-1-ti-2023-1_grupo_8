@@ -1,0 +1,20 @@
+.formqtd{
+    width: 50px;
+    height: 25px;
+}
+
+.btck{
+    width: 25px;
+    height: 25px;
+    border-radius: 0%;
+    background-color: green;
+    color: white;
+    font-size: 60%;
+    font-weight: bold;
+    border: none;
+    margin: 10px;
+}
+
+.form{
+    display: flex;
+}

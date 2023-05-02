@@ -10,10 +10,10 @@
     cursor: pointer;
 }
 .mesa{
-    width: 210px;
-    height:210px;
-    display: inline ;
-    flex-direction: row;
+    width: 220px;
+    height:220px;
+    display: flex ;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0px;
@@ -24,7 +24,14 @@
     
   }
 
+.card{
 
+    
+  }
+
+  .card:hover{
+    background-color: #4caf50;
+}
 
 
   .livre {

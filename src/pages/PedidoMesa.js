@@ -4,6 +4,8 @@ import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { getLoading, saveNewPedido } from "../features/mesas/pedidoslice";
 import { useNavigate } from "react-router-dom";
+import { FaCheck } from 'react-icons/fa';
+import "./PedidoMesa.css";
 
 const PedidoMesa = ({ itemPedido, idmesa }) => {
   const { nome, preco } = itemPedido;
@@ -29,23 +31,26 @@ const PedidoMesa = ({ itemPedido, idmesa }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        {nome} - R$ {preco} - {idmesa}
-      </div>
+        {nome} - R$ {preco}  {idmesa}
+      
       <Controller
+      
         name="quantidade"
         control={control}
         defaultValue={1}
         rules={{ required: true, min: 1 }}
         render={({ field }) => (
-          <input type="number" {...field} placeholder="Quantidade" />
+          <input className="formqtd" type="number" {...field} placeholder="Quantidade" />
         )}
       />
-      <Button type="submit">Adicionar</Button>
+      <Button className="btck" type="submit"><i><FaCheck /></i> {}</Button>
       {showConfirmation && (
         <div style={{ color: "green" }}>Item adicionado com sucesso!</div>
       )}
+</div>
+
     </form>
   );
 };
