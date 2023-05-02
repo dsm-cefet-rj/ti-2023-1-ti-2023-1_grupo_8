@@ -1,34 +1,122 @@
 {
   "mesas": [
     {
-      "id": 1,
       "nome": 0,
-      "cadeiras": 0,
-      "garcom": "",
+      "cadeiras": 4,
+      "garcom": "Pedro",
       "status": "livre",
-      "pedidos": [
-        {
-          "id": 1,
-          "nome": "Cerveja",
-          "preco": 8,
-          "quantidade": 2,
-          "status": "pendente"
-        },
-        {
-          "id": 2,
-          "nome": "Hamburger",
-          "preco": 15,
-          "quantidade": 2,
-          "status": "pendente"
-        },
-        {
-          "id": 3,
-          "nome": "Pizza",
-          "preco": 80,
-          "quantidade": 1,
-          "status": "pendente"
-        }
-      ]
+      "pedidos": [],
+      "id": 1
+    },
+    {
+      "nome": 0,
+      "cadeiras": 2,
+      "garcom": "Pedro",
+      "status": "livre",
+      "pedidos": [],
+      "id": 2
+    },
+    {
+      "nome": 0,
+      "cadeiras": 4,
+      "garcom": "Pedro",
+      "status": "livre",
+      "pedidos": [],
+      "id": 3
+    },
+    {
+      "nome": 0,
+      "cadeiras": 4,
+      "garcom": "Maria",
+      "status": "livre",
+      "pedidos": [],
+      "id": 4
+    },
+    {
+      "nome": 0,
+      "cadeiras": 2,
+      "garcom": "Maria",
+      "status": "livre",
+      "pedidos": [],
+      "id": 5
+    },
+    {
+      "nome": 0,
+      "cadeiras": 2,
+      "garcom": "Maria",
+      "status": "livre",
+      "pedidos": [],
+      "id": 6
+    }
+  ],
+  "pedidos": [
+    {
+      "nome": "Penne a Putanesca",
+      "preco": "R$ 38,00",
+      "idmesa": "6",
+      "status": "pendente",
+      "quantidade": "2",
+      "id": 1
+    },
+    {
+      "nome": "Panna cota",
+      "preco": "R$ 18,00",
+      "idmesa": "6",
+      "status": "pendente",
+      "quantidade": "2",
+      "id": 2
+    },
+    {
+      "nome": "Água de Coco",
+      "preco": "20",
+      "idmesa": "6",
+      "status": "pronto",
+      "quantidade": "3",
+      "id": 3
+    }
+  ],
+  "cardapio": [
+    {
+      "id": "c4",
+      "nome": "Penne a Putanesca",
+      "valor": "R$ 38,00",
+      "categoria": "Comidas"
+    },
+    {
+      "id": "s2",
+      "nome": "Panna cota",
+      "valor": "R$ 18,00",
+      "categoria": "Sobremesas"
+    },
+    {
+      "id": "s2",
+      "nome": "Cannoli",
+      "valor": "R$ 18,00",
+      "categoria": "Sobremesas"
+    },
+    {
+      "nome": "Arroz",
+      "categoria": "Comidas",
+      "valor": "20",
+      "id": "_5fCg3E"
+    },
+    {
+      "nome": "Água de Coco",
+      "categoria": "Bebidas",
+      "valor": "20",
+      "id": "Cf2FD8Q"
+    },
+    {
+      "nome": "Sorvete de Chocolate",
+      "categoria": "Sobremesas",
+      "valor": "50",
+      "id": "D6LDuAV"
+    },
+    {
+      "nome": "pudim de tapioca",
+      "categoria": "Sobremesas",
+      "valor": "20",
+      "id": "_bGgnQp"
     }
   ]
 }
