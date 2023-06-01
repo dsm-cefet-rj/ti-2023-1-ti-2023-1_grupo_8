@@ -73,6 +73,13 @@
       "status": "pronto",
       "quantidade": "3",
       "id": 3
+    },
+    {
+      "nome": "teste",
+      "preco": "200",
+      "status": "pendente",
+      "quantidade": "2",
+      "id": 4
     }
   ],
   "cardapio": [
@@ -117,6 +124,12 @@
       "categoria": "Sobremesas",
       "valor": "20",
       "id": "_bGgnQp"
+    },
+    {
+      "nome": "teste",
+      "categoria": "Comidas",
+      "valor": "200",
+      "id": "jsQeDHB"
     }
   ]
 }
