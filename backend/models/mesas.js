@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const normalize = require('normalize-mongoose');
 
-const MesaSchema = new Schema({
+const mesaSchema = new Schema({
     nome: {
         type: Number,
         required: true,
@@ -31,9 +31,9 @@ const MesaSchema = new Schema({
     },
 });
 
-MesaSchema.plugin(normalize);
+mesaSchema.plugin(normalize);
 
-var Mesas = mongoose.model('Mesa', MesaSchema);
+var Mesas = mongoose.model('Mesa', mesaSchema);
 
 module.exports = Mesas;
 

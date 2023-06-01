@@ -31,31 +31,25 @@ app.use('/mesas', mesasRouter);
 
 module.exports = app;*/
 
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-const mesasRouter = require('./routes/mesas');
+var indexRouter = require('./routes/index');
+var mesasRouter = require('./routes/mesas');
 
 const mongoose = require('mongoose');
 
+
 const url = 'mongodb://localhost:27017/tablemaster';
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-};
+const connect = mongoose.connect(url);
 
-mongoose.connect(url, options)
-  .then(() => {
-    console.log("Connected correctly to server");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+connect.then((db) => {
+  console.log("Connected correctly to server");
+}, (err) => { console.log(err); });
 
-const app = express();
+var app = express();
 
 app.use(logger('dev'));
 app.use(express.json());

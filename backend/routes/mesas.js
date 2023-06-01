@@ -116,14 +116,12 @@ router.route('/')
 .get(async (req, res, next) => {
 
   try{
-    const projetosBanco = await Mesas.find({});
+    const MesasBanco = await Mesas.find({}).maxTime(5000);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
-    res.json(projetosBanco);
+    res.json(MesasBanco);
   }catch(err){
-    err = {};
-    res.statusCode = 404;
-    res.json(err);
+    next(err);
   }
     
 })
@@ -141,25 +139,16 @@ router.route('/')
 })
 
 router.route('/:id')
-.get(async (req, res, next) => {
-  let err;
-  res.setHeader('Content-Type', 'application/json');
-  try{
-    const resp = await Mesas.findById(req.params.id);
-    if(resp != null){
-      res.statusCode = 200;
-      res.json(resp);
-    }else{
-      err = {};
-      res.statusCode = 404;
-      res.json(err);
-    }
+.get((req, res, next) => {
   
-  }catch(errParam){
-    console.log(errParam);
-    res.statusCode = 404;
-    res.json({});
-  }  
+  Mesas.findById(req.params.id)
+    .then((resp) => {
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.json(resp);
+    }, (err) => next(err))
+    .catch((err) => next(err));
+
 
 })
 .delete((req, res, next) => {
