@@ -4,36 +4,35 @@ const Schema = mongoose.Schema;
 
 const normalize = require('normalize-mongoose');
 
-const mesaSchema = new Schema({
+const PedidoSchema = new Schema({
     nome: {
         type: Number,
         required: true,
     },
-    cadeiras: {
+    preco: {
         type: Number,
         required: true,
     },
-    garcom: {
-        type: String,
+    quantidade: {
+        type: Number,
         required: true,
     },
     status: {
         type: String,
         required: true,
     },
-    pedidos: {
-        type: Array,
+    id: {
+        type: Number,
         required: true,
     },
-    id: {
+    idmesa: {
         type: Number,
         required: true,
     },
 });
 
-mesaSchema.plugin(normalize);
+PedidoSchema.plugin(normalize);
 
-var Mesas = mongoose.model('mesa', mesaSchema);
+var Pedidos = mongoose.model('Pedido', PedidoSchema);
 
-module.exports = Mesas;
-
+module.exports = Pedidos;

@@ -7,10 +7,16 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "mongoose": "^5.11.3",
+    "mongoose": "^5.13.17",
     "morgan": "~1.9.1",
     "normalize-mongoose": "0.0.1"
-  }
+  },
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

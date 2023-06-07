@@ -4,25 +4,17 @@ const Schema = mongoose.Schema;
 
 const normalize = require('normalize-mongoose');
 
-const mesaSchema = new Schema({
+const CardapioSchema = new Schema({
     nome: {
-        type: Number,
-        required: true,
-    },
-    cadeiras: {
-        type: Number,
-        required: true,
-    },
-    garcom: {
         type: String,
         required: true,
     },
-    status: {
-        type: String,
+    valor: {
+        type: Number,
         required: true,
     },
-    pedidos: {
-        type: Array,
+    categoria: {
+        type: String,
         required: true,
     },
     id: {
@@ -31,9 +23,8 @@ const mesaSchema = new Schema({
     },
 });
 
-mesaSchema.plugin(normalize);
+CardapioSchema.plugin(normalize);
 
-var Mesas = mongoose.model('mesa', mesaSchema);
+var Cardapios = mongoose.model('Cardapio', CardapioSchema);
 
-module.exports = Mesas;
-
+module.exports = Cardapios;
