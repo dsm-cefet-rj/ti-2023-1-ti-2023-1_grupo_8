@@ -43,6 +43,10 @@ const Layout = (props) => {
             <Button variant="success" as={Link} to="/garcom" style={{ marginRight: "20px" }}>
               Garçom
             </Button>
+            <Button variant="success" as={Link} to="/pedidos-concluidos" style={{ marginRight: "20px" }}>
+              Financeiro
+            </Button>
+
           </nav>
         </Navbar.Collapse>
       </Navbar>

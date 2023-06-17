@@ -46,7 +46,11 @@ var logger = require('morgan');
 const cors = require('cors');
 
 var indexRouter = require('./routes/index');
+
 var mesasRouter = require('./routes/mesas');
+var cardapioRouter = require('./routes/cardapio');
+var pedidosRouter = require('./routes/pedidos');
+
 
 const mongoose = require('mongoose');
 
@@ -69,5 +73,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/mesas', mesasRouter);
-
+app.use('/cardapio', cardapioRouter);
+app.use('/pedidos', pedidosRouter);
 module.exports = app;

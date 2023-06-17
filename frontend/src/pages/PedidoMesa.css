@@ -1,11 +1,25 @@
+.custom-button {
+    background-color: green;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .plus-icon {
+    color: white;
+    font-size: 24px;
+  }
+
+
+
+
 .formqtd{
     width: 50px;
     height: 25px;
 }
 
 .btck{
-    width: 25px;
-    height: 25px;
+    
     border-radius: 0%;
     background-color: green;
     color: white;
@@ -18,3 +32,55 @@
 .form{
     display: flex;
 }
+
+.pedido-mesa-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .pedido-details {
+    flex-grow: 1;
+  }
+  
+  .pedido-nome {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .pedido-preco {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .pedido-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .formqtd {
+    width: 50px;
+    height: 25px;
+  }
+  
+  .custom-button {
+    background-color: green;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .plus-icon {
+    color: white;
+    font-size: 24px;
+  }
+  
+  .pedido-confirmation {
+    color: green;
+    margin-top: 5px;
+  }

@@ -32,6 +32,11 @@ function Home() {
               Garçom
             </Link>
           </li>
+          <li>
+            <Link to="/pedidos-concluidos" className={`btn-green ${location.pathname === "/pedidos-concluidos" ? "active" : ""}`}>
+              Financeiro
+            </Link>
+          </li>
         </ul>
       </nav>
     </>

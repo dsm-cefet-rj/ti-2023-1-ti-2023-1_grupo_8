@@ -28,15 +28,13 @@ const Cozinha = () => {
   const updatePedidoStatus = async (pedidoId) => {
     try {
       const updatedPedido = allPedidos.find((pedido) => pedido.id === pedidoId);
-      await axios.patch(
-        `http://localhost:4000/pedidos/${pedidoId}`,
-        { status: "pronto" }
-      );
-      dispatch(updatePedido({ ...updatedPedido, status: "pronto" }));
+      console.log(pedidoId);
+      await dispatch(updatePedido({ id: pedidoId, status: "pronto" }));
     } catch (error) {
       console.error(error);
     }
   };
+  
 
   const handlePedidoPronto = (pedido) => {
     updatePedidoStatus(pedido.id);

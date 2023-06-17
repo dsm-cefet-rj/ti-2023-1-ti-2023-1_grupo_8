@@ -6,6 +6,7 @@ import AllMesas from "./pages/AllMesas";
 import AddMesa from "./pages/AddMesa";
 import EditMesas from "./pages/EditMesas";
 import DetailsMesa from "./pages/DetailsMesa";
+import ExibeMesa from "./pages/ExibeMesa";
 import Cozinha from "./pages/Cozinha";
 import React, { useState } from 'react';
 import { Cardapio } from "./pages/Cardapio";
@@ -13,7 +14,7 @@ import Home from "./pages/Home";
 import CardapioMesa from "./pages/CardapioMesa";
 import AddItem from "./pages/AddItem";
 import TelaGarcom from "./pages/TelaGarcom";
-
+import ExibePedidosConcluido from "./pages/ExibePedidosConcluidos";
 function App() {
   return (
     <>
@@ -25,11 +26,12 @@ function App() {
           <Route path="/add-mesa" element={<AddMesa />} />
           <Route path="/add-item" element={<AddItem />} />
           <Route path="/edit-mesa/:id" element={<EditMesas />} />
-          <Route path="/exibe-mesa/:id" element={<DetailsMesa />} />
+          <Route path="/exibe-mesa/:id" element={<ExibeMesa />} />
           <Route path="/cozinha" element={<Cozinha />} />
           <Route path="/cardapio" element={<Cardapio />} />
           <Route path="/cardapio-mesa/:id" element={<CardapioMesa />} />
           <Route path="/garcom" element={<TelaGarcom />} />
+          <Route path="/pedidos-concluidos" element={<ExibePedidosConcluido />} />
         </Routes>
       
         {/* <Routes>

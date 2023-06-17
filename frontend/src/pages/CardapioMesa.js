@@ -6,6 +6,9 @@ import { Table } from "react-bootstrap";
 import "./CardapioMesa.css";
 import { useNavigate, useParams } from "react-router-dom";
 
+
+
+
 const CardapioMesa = () => {
     const [cardapio, setCardapio] = useState([]);
     const [cardapioPorCategoria, setCardapioPorCategoria] = useState({});
@@ -20,6 +23,11 @@ const CardapioMesa = () => {
       loadCardapio();
     }, []);
   
+
+
+
+
+    
     useEffect(() => {
       const categorias = cardapio.reduce((acc, item) => {
         const categoria = item.categoria;
@@ -47,11 +55,10 @@ const CardapioMesa = () => {
                 {itens.map((item, index) => (
                   <tr key={index}>
 
+
                     <td>
-                      <PedidoMesa
-                        itemPedido={{ nome: item.nome, preco: item.valor }}
-                        
-                      />
+                    <PedidoMesa itemPedido={{ nome: item.nome, preco: item.valor }} idmesa={id} />
+
                     </td>
                   </tr>
                 ))}
@@ -64,3 +71,4 @@ const CardapioMesa = () => {
   };
 
 export default CardapioMesa;
+

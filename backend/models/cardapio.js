@@ -17,10 +17,7 @@ const CardapioSchema = new Schema({
         type: String,
         required: true,
     },
-    id: {
-        type: Number,
-        required: true,
-    },
+
 });
 
 CardapioSchema.plugin(normalize);

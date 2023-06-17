@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { getLoading, saveNewPedido } from "../features/mesas/pedidoslice";
 import { useNavigate } from "react-router-dom";
-import { FaCheck } from 'react-icons/fa';
+import { FaPlusSquare} from 'react-icons/fa';
 import "./PedidoMesa.css";
 
 const PedidoMesa = ({ itemPedido, idmesa }) => {
   const { nome, preco } = itemPedido;
-  console.log("idmesa:", idmesa);
+  console.log("idmesa no PedidoMesa:", idmesa);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const PedidoMesa = ({ itemPedido, idmesa }) => {
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        {nome} - R$ {preco}  {idmesa}
+        {nome} - R$ {preco}  {"  " } 
       
       <Controller
       
@@ -45,7 +45,9 @@ const PedidoMesa = ({ itemPedido, idmesa }) => {
           <input className="formqtd" type="number" {...field} placeholder="Quantidade" />
         )}
       />
-      <Button className="btck" type="submit"><i><FaCheck /></i> {}</Button>
+      <button className="custom-button" type="submit">
+          <FaPlusSquare className="plus-icon" />
+        </button>
       {showConfirmation && (
         <div style={{ color: "green" }}>Item adicionado com sucesso!</div>
       )}

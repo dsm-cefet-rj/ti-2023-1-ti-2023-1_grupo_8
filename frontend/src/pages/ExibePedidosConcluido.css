@@ -1,0 +1,58 @@
+.relatorio {
+  margin: 20px;
+}
+
+.relatorio-title {
+  text-align: center;
+}
+
+.relatorio-message {
+  text-align: center;
+  font-style: italic;
+}
+
+.relatorio-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.relatorio-table th,
+.relatorio-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.relatorio-table th {
+  background-color: #f2f2f2;
+}
+
+.relatorio-table tfoot td {
+  font-weight: bold;
+  text-align: right;
+}
+.chart-container {
+  width: 50%;
+  height: 50%;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+li p {
+  margin: 0;
+}
+
+
+  
