@@ -53,7 +53,7 @@ const PedidoMesa = ({ itemPedido, idmesa }) => {
           <input className="formqtd" type="number" {...field} placeholder="Quantidade" />
         )}
       />
-      <button className="custom-button" type="submit">
+      <button  className="custom-button" type="submit">
           <FaPlusSquare className="plus-icon" />
         </button>
       {showConfirmation && (

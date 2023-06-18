@@ -1,14 +1,17 @@
 .custom-button {
-    background-color: green;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  
-  .plus-icon {
-    color: white;
-    font-size: 24px;
-  }
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #4caf50;
+  transition: color 0.3s;
+}
+
+.custom-button:hover {
+  color: #66bb6a;
+}
+
+
 
 
 
@@ -18,16 +21,7 @@
     height: 25px;
 }
 
-.btck{
-    
-    border-radius: 0%;
-    background-color: green;
-    color: white;
-    font-size: 60%;
-    font-weight: bold;
-    border: none;
-    margin: 10px;
-}
+
 
 .form{
     display: flex;
@@ -67,18 +61,7 @@
     width: 50px;
     height: 25px;
   }
-  
-  .custom-button {
-    background-color: green;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  
-  .plus-icon {
-    color: white;
-    font-size: 24px;
-  }
+
   
   .pedido-confirmation {
     color: green;
