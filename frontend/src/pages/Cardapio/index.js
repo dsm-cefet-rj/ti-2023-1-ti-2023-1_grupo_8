@@ -13,6 +13,7 @@ import {
   getAllItens,
   getLoading,
 } from "../../features/mesas/itemslice";
+import CurrencyFormat from "react-currency-format";
 
 export const Cardapio = () => {
   const [cardapio, setCardapio] = useState([]);
@@ -65,7 +66,17 @@ export const Cardapio = () => {
           {itens.map((item, index) => (
             <div className="item" key={index}>
               <div className="nome">{item.nome}</div>
-              <div className="valor">R$ {item.valor}</div>
+              <div className="valor">
+  <CurrencyFormat
+    value={item.valor}
+    displayType={"text"}
+    prefix={"R$ "}
+    decimalSeparator={","}
+    fixedDecimalScale={true}
+    decimalScale={2}
+  />
+</div>
+<h6>&nbsp; </h6>
               <Button
                 variant="outline-danger"
                 onClick={() => {

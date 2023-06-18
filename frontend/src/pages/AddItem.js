@@ -75,12 +75,11 @@ export default AddItem;*/
 
 import axios from "axios";
 import { useState } from "react";
-
 import { Form, Button } from "react-bootstrap";
 
 const AddItem = () => {
   const [nome, setNome] = useState("");
-  const [categoria, setCategoria] = useState("Bebidas"); // Inicializado com "Bebidas"
+  const [categoria, setCategoria] = useState("Bebidas");
   const [valor, setValor] = useState("");
 
   const handleSubmit = async (event) => {
@@ -90,15 +89,23 @@ const AddItem = () => {
       await axios.post("http://localhost:4000/cardapio", {
         nome,
         categoria,
-        valor,
+        valor: parseFloat(valor.replace(",", ".")), // Converter para número usando ponto como separador decimal
       });
 
-      // Limpa os campos do formulário após a submissão bem-sucedida
       setNome("");
       setCategoria("Bebidas");
       setValor("");
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const handleValorChange = (event) => {
+    const inputValor = event.target.value;
+    const regex = /^\d+(\,\d{0,2})?$/; // Expressão regular para validar o formato do valor
+
+    if (regex.test(inputValor)) {
+      setValor(inputValor);
     }
   };
 
@@ -120,7 +127,7 @@ const AddItem = () => {
         <Form.Group controlId="categoria">
           <Form.Label>Categoria</Form.Label>
           <Form.Control
-            as="select" // Mudança aqui para o input do tipo "select"
+            as="select"
             value={categoria}
             onChange={(event) => setCategoria(event.target.value)}
           >
@@ -134,9 +141,9 @@ const AddItem = () => {
           <Form.Label>Valor</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Digite o valor do item"
+            placeholder="Digite o valor do item (ex: 10,90)"
             value={valor}
-            onChange={(event) => setValor(event.target.value)}
+            onChange={handleValorChange} // Alteração no evento onChange para chamar a função handleValorChange
           />
         </Form.Group>
 
@@ -149,5 +156,6 @@ const AddItem = () => {
 };
 
 export default AddItem;
+
 
 

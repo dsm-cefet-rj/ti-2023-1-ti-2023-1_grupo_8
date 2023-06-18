@@ -6,6 +6,7 @@ import { getLoading, saveNewPedido } from "../features/mesas/pedidoslice";
 import { useNavigate } from "react-router-dom";
 import { FaPlusSquare} from 'react-icons/fa';
 import "./PedidoMesa.css";
+import CurrencyFormat from "react-currency-format";
 
 const PedidoMesa = ({ itemPedido, idmesa }) => {
   const { nome, preco } = itemPedido;
@@ -33,7 +34,14 @@ const PedidoMesa = ({ itemPedido, idmesa }) => {
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       <div>
-        {nome} - R$ {preco}  {"  " } 
+        {nome} -  <CurrencyFormat
+    value={preco}
+    displayType={"text"}
+    prefix={"R$ "}
+    decimalSeparator={","}
+    fixedDecimalScale={true}
+    decimalScale={2}
+  />  {"  " } 
       
       <Controller
       
