@@ -65,16 +65,7 @@ const AddMesa = () => {
                 />
               </Form.Group>
              
-              <Form.Group className="mb-3" controlId="formStatus">
-                <Form.Label>Status</Form.Label>
-                <Controller
-                  control={control}
-                  name="status"
-                  render={({ field }) => (
-                    <Form.Control type="text" {...field} />
-                  )}
-                />
-              </Form.Group>
+
              
              
              
@@ -95,3 +86,20 @@ const AddMesa = () => {
 };
 
 export default AddMesa;
+
+
+/*
+
+              <Form.Group className="mb-3" controlId="formStatus">
+                <Form.Label>Status</Form.Label>
+                <Controller
+                  control={control}
+                  name="status"
+                  render={({ field }) => (
+                    <Form.Control type="text" {...field} />
+                  )}
+                />
+              </Form.Group>
+
+
+              */

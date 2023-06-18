@@ -2,7 +2,7 @@
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #ffffcc;
+    background-color: #ffffe3;
     border: 1px solid #dddddd;
     border-radius: 5px;
     font-family: Arial, sans-serif;
@@ -77,4 +77,38 @@
       font-size: 14px;
     }
   }
+  
+
+  .pedido-item {
+    /* Estilos para cada item de pedido */
+    position: relative;
+  }
+  
+  .bandeirinha {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    color: gray;
+    border-radius: 4px;
+  }
+  
+  .bandeirinha.pendente {
+    background-color: yellow;
+  }
+  
+  .bandeirinha.pronto {
+    background-color: orange;
+  }
+  
+  .bandeirinha.entregue {
+    background-color: rgb(17, 250, 17);
+  }
+  
+  /* Estilos para outros elementos, como botões, etc. */
+  
+  
+
   
