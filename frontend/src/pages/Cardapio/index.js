@@ -16,7 +16,7 @@ import {
 import CurrencyFormat from "react-currency-format";
 
 export const Cardapio = () => {
-  const [cardapio, setCardapio] = useState([]);
+  const cardapio = useSelector(getAllItens);
   const [cardapioPorCategoria, setCardapioPorCategoria] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [itemIdToDelete, setItemIdToDelete] = useState(null);
@@ -24,19 +24,15 @@ export const Cardapio = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const loadCardapio = async () => {
-      const { data } = await axios.get("http://localhost:4000/cardapio");
-      setCardapio(data);
-    };
-
-    loadCardapio();
-  }, []);
+    if (cardapio.length === 0) {
+      dispatch(fetchALLItens());
+    }
+  }, [cardapio.length, dispatch]);
 
   const handleDeleteItem = async () => {
     await dispatch(deleteItem(itemIdToDelete));
     dispatch(fetchALLItens());
     setShowModal(false);
-    window.location.reload();
   };
 
   const navigate = useNavigate();

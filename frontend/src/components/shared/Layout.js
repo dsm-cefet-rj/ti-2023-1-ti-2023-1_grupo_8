@@ -28,7 +28,7 @@ const Layout = (props) => {
         <Navbar.Toggle aria-controls="navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
           <nav className="ml-auto">
-            <Button variant="success" as={Link} to="/" style={{ marginRight: "20px" }}>
+            <Button variant="success" as={Link} to="/home" style={{ marginRight: "20px" }}>
               Home
             </Button>
             <Button variant="success" as={Link} to="/mesas" style={{ marginRight: "20px" }}>

@@ -97,6 +97,8 @@ var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
 const Pedidos = require('../models/pedidos');
+var authenticate = require('../authenticate');
+const cors = require('./cors');
 
 router.use(bodyParser.json());
 
@@ -114,7 +116,8 @@ async function gerarIDsSequenciais() {
 
 /* GET pedidos listing. */
 router.route('/')
-  .get(async (req, res, next) => {
+  .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+  .get(cors.corsWithOptions, authenticate.verifyUser, async (req, res, next) => {
     try {
       const pedidos = await Pedidos.find({}).maxTime(5000);
       res.statusCode = 200;
@@ -124,7 +127,7 @@ router.route('/')
       next(err);
     }
   })
-  .post(async (req, res, next) => {
+  .post(cors.corsWithOptions, authenticate.verifyUser, async (req, res, next) => {
     try {
       const novoID = await gerarIDsSequenciais();
       req.body.id = novoID;
@@ -139,7 +142,7 @@ router.route('/')
   });
 
 router.route('/:id')
-  .get((req, res, next) => {
+  .get(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
     Pedidos.findOne({ id: req.params.id }) // Busca por id sequencial
       .then((pedido) => {
         res.statusCode = 200;
@@ -148,7 +151,7 @@ router.route('/:id')
       })
       .catch((err) => next(err));
   })
-  .delete((req, res, next) => {
+  .delete(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
     Pedidos.deleteOne({ id: req.params.id }) // Deleta por id sequencial
       .then((result) => {
         res.statusCode = 200;
@@ -158,8 +161,7 @@ router.route('/:id')
       .catch((err) => next(err));
   })
 
-
-  .patch((req, res, next) => {
+  .patch(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
     Pedidos.findOneAndUpdate({ id: req.params.id }, {
       $set: req.body
     }, { new: true })
@@ -171,13 +173,7 @@ router.route('/:id')
       .catch((err) => next(err));
   })
 
-
-
-
-
-
-
-  .put((req, res, next) => {
+  .put(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
     Pedidos.findOneAndUpdate({ id: req.params.id }, {
       $set: req.body
     }, { new: true })

@@ -15,13 +15,17 @@ import CardapioMesa from "./pages/CardapioMesa";
 import AddItem from "./pages/AddItem";
 import TelaGarcom from "./pages/TelaGarcom";
 import ExibePedidosConcluido from "./pages/ExibePedidosConcluidos";
+import LoginForm from "./users/LoginForm";
+import SignupForm from "./users/SignupForm";
 function App() {
   return (
     <>
       <Layout>
 
       <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/mesas" element={<AllMesas />} />
           <Route path="/add-mesa" element={<AddMesa />} />
           <Route path="/add-item" element={<AddItem />} />

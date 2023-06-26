@@ -5,23 +5,25 @@ import PedidoMesa from "./PedidoMesa";
 import { Table } from "react-bootstrap";
 import "./CardapioMesa.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchALLItens, getAllItens } from "../features/mesas/itemslice";
 
 
 
 
 const CardapioMesa = () => {
-    const [cardapio, setCardapio] = useState([]);
+    const cardapio = useSelector(getAllItens);
     const [cardapioPorCategoria, setCardapioPorCategoria] = useState({});
     const { id } = useParams();
+
+    const dispatch = useDispatch();
   
     useEffect(() => {
-      const loadCardapio = async () => {
-        const { data } = await axios.get("http://localhost:4000/cardapio");
-        setCardapio(data);
-      };
-  
-      loadCardapio();
-    }, []);
+      console.log(cardapio);
+      if (cardapio.length === 0) {
+        dispatch(fetchALLItens());
+      }
+    }, [cardapio, dispatch]);
   
 
 

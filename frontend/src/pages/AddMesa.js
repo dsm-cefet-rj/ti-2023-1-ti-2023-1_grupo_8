@@ -27,7 +27,7 @@ const AddMesa = () => {
       status: data.status,
       pedidos: data.pedidos,
     };
-    disptach(saveNewMesa(payload))
+    disptach(saveNewMesa(payload)) // LOL
       .unwrap()
       .then(() => {
         navigate("/mesas");

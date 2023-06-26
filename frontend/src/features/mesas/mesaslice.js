@@ -2,29 +2,35 @@ import axios from "axios";
 
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
-export const fetchALLMesas = createAsyncThunk("mesas/getAPI", async () => {
-  const response = await axios.get("http://localhost:4000/mesas");
+export const fetchALLMesas = createAsyncThunk("mesas/getAPI", async (_, {getState}) => {
+  const response = await axios.get(
+    "http://localhost:4000/mesas", 
+    {headers: {Authorization: 'Bearer ' + getState().login.currentToken}});
   return response.data;
 });
 
 export const saveNewMesa = createAsyncThunk(
   "mesas/createAPI",
-  async (payload) => {
-    const response = await axios.post("http://localhost:4000/mesas", payload);
+  async (payload, {getState}) => {
+    const response = await axios.post(
+      "http://localhost:4000/mesas", payload, 
+      {headers: {Authorization: 'Bearer ' + getState().login.currentToken}});
     return response.data;
   }
 );
 
-export const updateMesa = createAsyncThunk("mesas/updateAPI", async (payload) => {
+export const updateMesa = createAsyncThunk("mesas/updateAPI", async (payload, {getState}) => {
   const response = await axios.put(
-    `http://localhost:4000/mesas/${payload.id}`,
-    payload
+    `http://localhost:4000/mesas/${payload.id}`, payload, 
+    {headers: {Authorization: 'Bearer ' + getState().login.currentToken}}
   );
   return response.data;
 });
 
-export const deleteMesa = createAsyncThunk("mesas/deleteAPI", async (id) => {
-  const response = await axios.delete(`http://localhost:4000/mesas/${id}`);
+export const deleteMesa = createAsyncThunk("mesas/deleteAPI", async (id, {getState}) => {
+  const response = await axios.delete(
+    `http://localhost:4000/mesas/${id}`, 
+    {headers: {Authorization: 'Bearer ' + getState().login.currentToken}});
   return id;
 });
 

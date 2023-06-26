@@ -1,33 +1,39 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk, createSelector } from "@reduxjs/toolkit";
 
-export const fetchALLPedidos = createAsyncThunk("pedidos/getAPI", async () => {
-  const response = await axios.get("http://localhost:4000/pedidos");
+export const fetchALLPedidos = createAsyncThunk("pedidos/getAPI", async (_, {getState}) => {
+  const response = await axios.get(
+    "http://localhost:4000/pedidos", 
+    {headers: {Authorization: 'Bearer ' + getState().login.currentToken}});
   return response.data;
 });
 
 export const fetchPedidosByMesaId = createAsyncThunk(
   "pedidos/getByMesaIdAPI",
-  async (mesaId) => {
-    const response = await axios.get("http://localhost:4000/pedidos");
+  async (mesaId, {getState}) => {
+    const response = await axios.get(
+      "http://localhost:4000/pedidos", 
+      {headers: {Authorization: 'Bearer ' + getState().login.currentToken}});
     return response.data.filter((pedido) => pedido.idmesa === mesaId);
   }
 );
 
 export const saveNewPedido = createAsyncThunk(
   "pedidos/createAPI",
-  async (payload) => {
-    const response = await axios.post("http://localhost:4000/pedidos", payload);
+  async (payload, {getState}) => {
+    const response = await axios.post(
+      "http://localhost:4000/pedidos", payload, 
+      {headers: {Authorization: 'Bearer ' + getState().login.currentToken}});
     return response.data;
   }
 );
 
 export const updatePedido = createAsyncThunk(
   "pedidos/updateAPI",
-  async (payload) => {
+  async (payload, {getState}) => {
     const response = await axios.put(
-      `http://localhost:4000/pedidos/${payload.id}`,
-      payload
+      `http://localhost:4000/pedidos/${payload.id}`, payload, 
+      {headers: {Authorization: 'Bearer ' + getState().login.currentToken}}
     );
     return response.data;
   }
@@ -35,20 +41,23 @@ export const updatePedido = createAsyncThunk(
 
 export const deletePedido = createAsyncThunk(
   "pedidos/deleteAPI",
-  async (id) => {
+  async (id, {getState}) => {
     const response = await axios.delete(
-      `http://localhost:4000/pedidos/${id}`
+      `http://localhost:4000/pedidos/${id}`, 
+      {headers: {Authorization: 'Bearer ' + getState().login.currentToken}}
     );
     return id;
   }
 );
 
+// PODE QUEBRAR
 export const atualizarStatusPedido = createAsyncThunk(
   "pedidos/atualizarStatusAPI",
-  async ({ id, status }) => {
+  async ({ id, status }, {getState}) => {
     const response = await axios.put(
       `http://localhost:4000/pedidos/${id}`,
-      { status }
+      { status }, 
+      {headers: {Authorization: 'Bearer ' + getState().login.currentToken}}
     );
     return response.data;
   }

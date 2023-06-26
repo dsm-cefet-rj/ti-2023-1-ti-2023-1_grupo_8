@@ -7,29 +7,35 @@ import axios from "axios";
 
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
-export const fetchALLItens = createAsyncThunk("itens/getAPI", async () => {
-  const response = await axios.get("http://localhost:4000/itens");
+export const fetchALLItens = createAsyncThunk("itens/getAPI", async (_, {getState}) => {
+  const response = await axios.get(
+    "http://localhost:4000/cardapio", 
+    {headers: {Authorization: 'Bearer ' + getState().login.currentToken}});
   return response.data;
 });
 
 export const saveNewItem = createAsyncThunk(
   "itens/createAPI",
-  async (payload) => {
-    const response = await axios.post("http://localhost:4000/cardapio", payload);
+  async (payload, {getState}) => {
+    const response = await axios.post(
+      "http://localhost:4000/cardapio", payload, 
+      {headers: {Authorization: 'Bearer ' + getState().login.currentToken}});
     return response.data;
   }
 );
 
-export const updateItem = createAsyncThunk("itens/updateAPI", async (payload) => {
+export const updateItem = createAsyncThunk("itens/updateAPI", async (payload, {getState}) => {
   const response = await axios.put(
-    `http://localhost:4000/cardapio/${payload.id}`,
-    payload
+    `http://localhost:4000/cardapio/${payload.id}`, payload, 
+    {headers: {Authorization: 'Bearer ' + getState().login.currentToken}}
   );
   return response.data;
 });
 
-export const deleteItem = createAsyncThunk("itens/deleteAPI", async (id) => {
-  const response = await axios.delete(`http://localhost:4000/cardapio/${id}`);
+export const deleteItem = createAsyncThunk("itens/deleteAPI", async (id, {getState}) => {
+  const response = await axios.delete(
+    `http://localhost:4000/cardapio/${id}`, 
+    {headers: {Authorization: 'Bearer ' + getState().login.currentToken}});
   return id;
 });
 

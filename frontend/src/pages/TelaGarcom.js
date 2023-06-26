@@ -28,10 +28,6 @@ const TelaGarcom = () => {
   const updatePedidoStatus = async (pedidoId) => {
     try {
       const updatedPedido = allPedidos.find((pedido) => pedido.id === pedidoId);
-      await axios.patch(
-        `http://localhost:4000/pedidos/${pedidoId}`,
-        { status: "entregue" }
-      );
       dispatch(updatePedido({ ...updatedPedido, status: "entregue" }));
     } catch (error) {
       console.error(error);

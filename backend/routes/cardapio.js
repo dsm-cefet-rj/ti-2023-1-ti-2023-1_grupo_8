@@ -2,13 +2,16 @@ var express = require('express');
 var router = express.Router();
 const bodyParser = require('body-parser');
 const cardapio = require('../models/cardapio');
+var authenticate = require('../authenticate');
+const cors = require('./cors');
 
 router.use(bodyParser.json());
 
 
 /* GET users listing. */
 router.route('/')
-.get(async (req, res, next) => {
+.options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
+.get(cors.corsWithOptions, authenticate.verifyUser, async (req, res, next) => {
 
   try{
     const cardapioBanco = await cardapio.find({});
@@ -22,7 +25,7 @@ router.route('/')
   }
     
 })
-.post((req, res, next) => {
+.post(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
   
   cardapio.create(req.body)
   .then((mesa) => {
@@ -36,7 +39,7 @@ router.route('/')
 })
 
 router.route('/:id')
-.get(async (req, res, next) => {
+.get(cors.corsWithOptions, authenticate.verifyUser, async (req, res, next) => {
   let err;
   res.setHeader('Content-Type', 'application/json');
   try{
@@ -57,7 +60,7 @@ router.route('/:id')
   }  
 
 })
-.delete((req, res, next) => {
+.delete(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
   
   cardapio.findByIdAndRemove(req.params.id)
     .then((resp) => {
@@ -69,7 +72,7 @@ router.route('/:id')
 
 
 })
-.put((req, res, next) => {
+.put(cors.corsWithOptions, authenticate.verifyUser, (req, res, next) => {
   
   cardapio.findByIdAndUpdate(req.params.id, {
     $set: req.body
